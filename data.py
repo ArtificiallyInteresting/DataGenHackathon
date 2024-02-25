@@ -7,6 +7,6 @@ def input():
         return header, rows
 
 def write(header, data):
-    with open("data.csv", "w") as file:
+    with open("output.csv", "w") as file:
         file.write(header + "\n")
         file.write(data)
