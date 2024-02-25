@@ -17,24 +17,19 @@ class llm:
         self.openai_api_key = os.getenv('OPENAI_API_KEY', 'YourAPIKey')
         self.model = ChatOpenAI(model="gpt-3.5-turbo")
 
-    def generate_data(self):
-        headers = "Name, Age"
+    def generate_data(self, header, rows):
         prompt_template = """
         You are a system which generates csv data. You will generate a csv file with the following fields:
-        ```{headers}```.
+        ```{header}```.
+
         Here is some sample rows of data:
-        ```Henry, 32
-        John, 45
-        Alice, 28
-        ```
+        ```{rows}```.
+
         Generate 20 additional rows of csv data. Your response should only contain the csv data with no additional text.
         """
-        filled_template = prompt_template.format_map({"headers": headers})
-        prompt = ChatPromptTemplate.from_template(filled_template)
-
-
+        filled_template = prompt_template.format_map({"header": header, "rows": "\n".join(rows)})
+        print(filled_template)
         output = self.model.invoke(filled_template)
-        print (output)
         return output
 
 class SafeDict(dict):
