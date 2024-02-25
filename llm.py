@@ -30,9 +30,10 @@ class llm:
         This data will later be used by a system which generates additional data, so include any insights that may help generate additional similar data.
         """
         filled_template = prompt_template.format_map({"header": header, "rows": "\n".join(rows)})
-        print(filled_template)
+        # print(filled_template)
+        print("Generating data analysis...")
         output = self.model.invoke(filled_template)
-        print(output)
+        # print(output)
         return output
 
 
@@ -51,12 +52,12 @@ class llm:
         Generate 20 additional rows of csv data. Your response should only contain the csv data with no additional text. Do not include headers.
         """
         filled_template = prompt_template.format_map({"header": header, "rows": "\n".join(rows), "analysis": analysis})
-        print(filled_template)
+        # print(filled_template)
+        print("Generating 20 new rows of data...")
         output = self.model.invoke(filled_template).content
 
-
         data.write("intermediateoutput.csv", header, output)
-        filtered_data = self.filter_data(header, output.split("\n")[1:], rows, analysis)
+        filtered_data = self.filter_data(header, output.split("\n"), rows, analysis)
 
         return filtered_data
     
@@ -79,7 +80,8 @@ class llm:
         Your response should only contain the csv data with no additional text. Do not include headers.
         """
         filled_template = prompt_template.format_map({"header": header, "rows": "\n".join(rows), "analysis": analysis, "originalrows": "\n".join(originalrows)})
-        print(filled_template)
+        # print(filled_template)
+        print("Filtering data for outliers and sensitive data...")
         output = self.model.invoke(filled_template).content
         return output
     

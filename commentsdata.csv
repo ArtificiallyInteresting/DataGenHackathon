@@ -1,11 +1,11 @@
 TweetID,Username,Timestamp,TweetText,Sentiment,Product,Location,Retweets,Favorites
-1,user1,2024-02-25T08:30:00,"Loving the new XPhone, battery lasts forever! #happy",Positive,XPhone,New York,150,300
-2,user2,2024-02-25T09:15:00,"Disappointed with the latest XPad update, it's buggy. #frustrated",Negative,XPad,California,75,100
-3,user3,2024-02-25T10:05:00,"XPhone's camera is top-notch, best photos I've ever taken!",Positive,XPhone,London,200,450
-4,user4,2024-02-25T11:00:00,"Just got my XPhone and it's overheating already :( #letdown",Negative,XPhone,Toronto,50,60
-5,user5,2024-02-25T12:45:00,"The customer service at XCorp is amazing, resolved my issue in minutes!",Positive,General,Florida,20,40
-6,user6,2024-02-25T13:30:00,"Why is the XPad so expensive? Not worth the money. #overpriced",Negative,XPad,Berlin,100,150
-7,user7,2024-02-25T14:25:00,"XCorp's new eco-friendly packaging is a great initiative! #green",Positive,General,Sydney,220,350
-8,user8,2024-02-25T15:45:00,"Frustrated with the XWatch, it stopped syncing with my phone. #annoyed",Negative,XWatch,Tokyo,30,50
-9,user9,2024-02-25T16:20:00,"The latest XPad has incredible display clarity, watching movies is a joy!",Positive,XPad,Los Angeles,180,290
-10,user10,2024-02-25T17:55:00,"XCorp's XWatch has a sleek design but the battery life is too short. #mixedfeelings",Negative,XWatch,Paris,70,90
+1,TechSavvyTom,2024-02-25T08:30:00,"Loving the new XPhone, battery lasts forever! #happy",Positive,XPhone,New York,150,300
+2,GadgetGuru,2024-02-25T09:15:00,"Disappointed with the latest XPad update, it's buggy. #frustrated",Negative,XPad,California,75,100
+3,PhotoFanatic,2024-02-25T10:05:00,"XPhone's camera is top-notch, best photos I've ever taken!",Positive,XPhone,London,200,450
+4,CoolTechie,2024-02-25T11:00:00,"Just got my XPhone and it's overheating already :( #letdown",Negative,XPhone,Toronto,50,60
+5,ServiceSmiler,2024-02-25T12:45:00,"The customer service at XCorp is amazing, resolved my issue in minutes!",Positive,General,Florida,20,40
+6,PricePonderer,2024-02-25T13:30:00,"Why is the XPad so expensive? Not worth the money. #overpriced",Negative,XPad,Berlin,100,150
+7,EcoEnthusiast,2024-02-25T14:25:00,"XCorp's new eco-friendly packaging is a great initiative! #green",Positive,General,Sydney,220,350
+8,SyncSeeker,2024-02-25T15:45:00,"Frustrated with the XWatch, it stopped syncing with my phone. #annoyed",Negative,XWatch,Tokyo,30,50
+9,MovieBuff,2024-02-25T16:20:00,"The latest XPad has incredible display clarity, watching movies is a joy!",Positive,XPad,Los Angeles,180,290
+10,DesignDiva,2024-02-25T17:55:00,"XCorp's XWatch has a sleek design but the battery life is too short. #mixedfeelings",Negative,XWatch,Paris,70,90
