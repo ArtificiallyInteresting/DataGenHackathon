@@ -2,6 +2,7 @@
 import os
 from operator import itemgetter
 import json
+import data
 
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -47,12 +48,41 @@ class llm:
         Here is an analysis of the data in order to help you generate additional data:
         ```{analysis}```.
 
-        Generate 20 additional rows of csv data. Your response should only contain the csv data with no additional text.
+        Generate 20 additional rows of csv data. Your response should only contain the csv data with no additional text. Do not include headers.
         """
         filled_template = prompt_template.format_map({"header": header, "rows": "\n".join(rows), "analysis": analysis})
         print(filled_template)
-        output = self.model.invoke(filled_template)
+        output = self.model.invoke(filled_template).content
+
+
+        data.write("intermediateoutput.csv", header, output)
+        filtered_data = self.filter_data(header, output.split("\n")[1:], rows, analysis)
+
+        return filtered_data
+    
+    def filter_data(self, header, rows, originalrows, analysis):
+
+        prompt_template = """
+        You are a system which analyzes data and removes outliers. You are looking at a csv file with the following fields:
+        ```{header}```.
+
+        Here is the data from that csv which you will be operating on:
+        ```{rows}```.
+
+        Here is an analysis of the data in order to help you generate additional data:
+        ```{analysis}```.
+
+        And here is the original data, which you should use to remove any rows that are outliers:
+        ```{originalrows}```.
+
+        Look at the rows of data and return any which are not outliers. Any data row which would not fit in the original data is considered an outlier.
+        Your response should only contain the csv data with no additional text. Do not include headers.
+        """
+        filled_template = prompt_template.format_map({"header": header, "rows": "\n".join(rows), "analysis": analysis, "originalrows": "\n".join(originalrows)})
+        print(filled_template)
+        output = self.model.invoke(filled_template).content
         return output
+    
 
 class SafeDict(dict):
     def __missing__(self, key):

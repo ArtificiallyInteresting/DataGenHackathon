@@ -5,11 +5,12 @@ import data
 load_dotenv()
 
 def main():
-    header, rows = data.input()
+    header, rows = data.input("commentsdata.csv")
     datagen = llm.llm()
     new_data = datagen.generate_data(header, rows)
+
     print(new_data)
-    data.write(header, new_data.content)
+    data.write("finaloutput.csv", header, new_data)
 
 if __name__ == "__main__":
     main()
