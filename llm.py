@@ -1,17 +1,8 @@
 
 import os
-from operator import itemgetter
-import json
 import data
 
 from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain.chains import ConversationChain
-from langchain_core.runnables import RunnableLambda, RunnablePassthrough
-
-
-from langchain.memory import ConversationBufferMemory
 
 class llm:
     def __init__(self):
@@ -33,7 +24,7 @@ class llm:
         # print(filled_template)
         print("Generating data analysis...")
         output = self.model.invoke(filled_template)
-        # print(output)
+        print(output)
         return output
 
 
